@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import haloContentApi from "assets/js/haloContentApi";
+import haloContentApi from '@/plugins/halo'
 export default {
   name: 'CategoryPage',
   data() {
