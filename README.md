@@ -1,4 +1,4 @@
-# halo-inblue
+# inblue
 
 ## Build Setup
 
