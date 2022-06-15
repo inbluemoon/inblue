@@ -5,7 +5,6 @@ import globalConfig from "~/config";
 
 // github api base url
 const GITHUB_API = `https://api.github.com/repos/${globalConfig.github.username}/${globalConfig.github.repository}`
-console.log(GITHUB_API)
 
 // github token
 const GITHUB_TOKEN = globalConfig.github.token.join('')
