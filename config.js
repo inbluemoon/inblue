@@ -9,7 +9,7 @@ export default {
     // 用户展示名称
     username: 'inbluemoon',
     // 用户展示头像
-    avatars: 'https://avatars.githubusercontent.com/u/27754907?v=4',
+    avatar: 'https://avatars.githubusercontent.com/u/27754907?v=4',
   },
   /**
    * Github Issues 配置

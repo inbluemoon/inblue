@@ -4,13 +4,13 @@
     <article v-for="post in postList" :id="`post-${post.id}`" class="post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
 
       <div class="entry-header pull-left">
-        <a href="#" class="topic-thumb bg tips-right" style="background-image: url('https://www.inbluemoon.com/upload/2022/05/v2-601e81c11057da9a376c4392b6e97610_xll.jpeg')" aria-label="Feature：未分类"></a>
+        <a href="#" class="topic-thumb bg tips-right" style="background-image: url(https://avatars.githubusercontent.com/u/27754907?v=4)" aria-label="Feature：未分类"></a>
       </div>
 
       <div class="entry-content w-50">
 
         <div class="meta">
-          <span class="nickname">@離央</span>
+          <span class="nickname">@{{ config.user.username }}</span>
           <time itemprop="datePublished" datetime="2022-05-29T10:49:27+08:00"> · 16 分钟前</time>
         </div>
 

@@ -32,7 +32,7 @@
       </div>
       <div class="sns master-info width">
         <a href="" class="sns-avatar max" ref="avatar" :style="tabBarFixed ? 'margin-bottom: 90px' : 'margin-bottom: 0px'">
-          <img :src="config.user.avatars" width="200" class="avatar avatar-200">
+          <img :src="config.user.avatar" width="200" class="avatar avatar-200">
         </a>
       </div>
     </section>
@@ -58,13 +58,6 @@ export default {
 </script>
 
 <style scoped>
-
-.bg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  display: block
-}
 
 .text-input {
   box-shadow: none;
