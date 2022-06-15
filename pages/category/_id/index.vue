@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import haloContentApi from '@/plugins/halo'
 export default {
   name: 'CategoryPage',
   data() {
@@ -43,16 +42,12 @@ export default {
     }
   },
   created() {
-    this.getPostListByCategoryId()
+
   },
   methods: {
     getPostListByCategoryId() {
       this.isLoading = true
-      haloContentApi.post.list(this.pageQuery, this.searchKeyWord, this.categoryId).then(({ data }) => {
-        this.postList.push.apply(this.postList, data.content)
-        this.hasNextPage = data.hasNext
-        this.isPostEmpty = data.isEmpty && data.isLast
-      }).finally(() => { this.isLoading = false })
+      this.isLoading = false
     },
     getNextPage() {
       this.pageQuery.page = this.pageQuery.page + 1

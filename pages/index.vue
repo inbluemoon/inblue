@@ -23,7 +23,8 @@
 </template>
 
 <script>
-import haloContentApi from '@/plugins/halo'
+import { getPostList } from '~/api/post'
+import { formatPost } from '~/utils/format'
 export default {
   name: 'Index',
   data() {
@@ -32,10 +33,9 @@ export default {
       postList: [],
       isPostEmpty: false,
       hasNextPage: false,
-      pageQuery: {
-        page: 0,
-        size: 10,
-        sort: []
+      searchData: {
+        pageIndex: 1,
+        pageSize: 10
       },
       searchKeyWord: ''
     }
@@ -46,14 +46,14 @@ export default {
   methods: {
     getPostListByPage() {
       this.isLoading = true
-      haloContentApi.post.list(this.pageQuery, this.searchKeyWord).then(({ data }) => {
-        this.postList.push.apply(this.postList, data.content)
-        this.hasNextPage = data.hasNext
-        this.isPostEmpty = data.isEmpty && data.isLast
+      getPostList(this.searchData).then(res => {
+        this.postList = res.map(item => {
+          return formatPost(item)
+        })
       }).finally(() => { this.isLoading = false })
     },
     getNextPage() {
-      this.pageQuery.page = this.pageQuery.page + 1
+      this.searchData.pageIndex = this.searchData.pageIndex + 1
       this.getPostListByPage()
     }
   }

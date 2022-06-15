@@ -7,13 +7,13 @@
             <div class="middle">
               <div class="sns-avatar min">
                 <a href="#">
-                  <img src="https://www.inbluemoon.com/upload/2022/05/v2-601e81c11057da9a376c4392b6e97610_xll.jpeg" width="36" class="avatar avatar-36">
+                  <img :src="config.user.avatar" width="36" class="avatar avatar-36">
                 </a>
               </div>
             </div>
             <div class="middle">
-              <h4 class="blog-name">離央</h4>
-              <div class="nickname">@離央</div>
+              <h4 class="blog-name">{{ config.title }}</h4>
+              <div class="nickname">@{{ config.user.username }}</div>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import haloContentApi from '@/plugins/halo'
+import { getPostCategory } from '~/api/post'
 export default {
   name: 'TabBar',
   props: {
@@ -57,8 +57,13 @@ export default {
   },
   methods: {
     getCategoryList() {
-      haloContentApi.category.list(this.searchData).then(({ data }) => {
-        this.categoryList = data
+      getPostCategory().then((res) => {
+        this.categoryList = res.map(item => {
+          return {
+            id: item.id,
+            name: item.title
+          }
+        })
       })
     }
   }

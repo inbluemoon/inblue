@@ -15,13 +15,13 @@
         </div>
 
         <h2 class="title">
-          <a :href="post.fullPath" rel="bookmark">
+          <a href="javascript:void(0)" rel="bookmark">
             {{ post.title }}
           </a>
         </h2>
 
         <div class="summary" itemprop="description">
-          {{ post.summary }}
+          {{ post.description }}
         </div>
 
       </div>
@@ -30,15 +30,15 @@
         <ul class="items state">
           <li class="item count-comment">
             <i class="icon icon-comment" />
-            {{ post.commentCount }}
+            {{ post.comments || 0 }}
           </li>
           <li class="item count-view">
             <i class="icon icon-eye" />
-            {{ post.visits }}
+            {{ post.visits || 0 }}
           </li>
           <li class="item count-like">
             <i class="icon icon-heart" />
-            {{ post.likes }}
+            {{ post.likes || 0 }}
           </li>
           <li class="item count-image">
             <i class="icon icon-images" />

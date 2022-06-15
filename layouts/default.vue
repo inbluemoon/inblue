@@ -32,6 +32,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: this.getTitle()
+    }
+  },
   data() {
     return {
       offsetTop: '',
@@ -46,14 +51,18 @@ export default {
       window.addEventListener('scroll', this.handleScroll)
     })
   },
-  watch: {
-
-  },
   methods: {
     handleScroll() {
       const scrollTop = document.documentElement.scrollTop
       this.tabBarFixed = scrollTop > this.offsetTop
-    }
+    },
+    getTitle() {
+      if (this.config.title && this.config.subtitle) {
+        return `${this.config.title} - ${this.config.subtitle}`
+      }
+      return this.config.title || this.config.subtitle
+    },
+
   }
 }
 </script>

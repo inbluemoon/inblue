@@ -3,8 +3,8 @@
     <div class="inner">
       <div class="sns master-info">
         <div class="info-base">
-          <h2 class="blog-name">離央<i class="icon icon-vip ca-icon" /></h2>
-          <div class="nickname">@離央</div>
+          <h2 class="blog-name">{{ config.title }}<i class="icon icon-vip ca-icon" /></h2>
+          <div class="nickname">@{{ config.user.username }}</div>
           <p class="description"></p>
         </div>
         <ul class="info-extras">

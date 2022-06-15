@@ -32,7 +32,7 @@
       </div>
       <div class="sns master-info width">
         <a href="" class="sns-avatar max" ref="avatar" :style="tabBarFixed ? 'margin-bottom: 90px' : 'margin-bottom: 0px'">
-          <img src="https://www.inbluemoon.com/upload/2022/05/v2-601e81c11057da9a376c4392b6e97610_xll.jpeg" width="200" class="avatar avatar-200">
+          <img :src="config.user.avatars" width="200" class="avatar avatar-200">
         </a>
       </div>
     </section>
