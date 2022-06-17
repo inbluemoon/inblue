@@ -22,7 +22,10 @@
         </ul>
         <div class="info-actions">
           <div class="item">
-            <a href="mailto:874237291@qq.com" rel="nofollow" target="_blank" id="button" class="tips-top" aria-label="874237291@qq.com">
+<!--            <a href="mailto:874237291@qq.com" rel="nofollow" target="_blank" id="button" class="tips-top" aria-label="874237291@qq.com">-->
+<!--              <i class="icon icon-mail" />发送邮件-->
+<!--            </a>-->
+            <a @click="click" rel="nofollow" id="button" class="tips-top" aria-label="874237291@qq.com">
               <i class="icon icon-mail" />发送邮件
             </a>
           </div>
@@ -39,7 +42,12 @@
 
 <script>
 export default {
-  name: 'Aside'
+  name: 'Aside',
+  methods: {
+    click() {
+      this.showNotification('测试一下消息是否正常测试一下消息是否正常测试一下消息是否正常测试一下消息是否正常测试一下消息是否正常测试一下消息是否正常测试一下消息是否正常');
+    }
+  }
 }
 </script>
 

@@ -1,28 +1,42 @@
 <template>
-  <div id="notification" class="js-msg" style="display: block;">
-    <div class="title">
-      <span class="icon"></span>
-      New Notification
+
+  <slide-up-down id="notificationSlideUpDown" :active="isShow">
+    <div id="notification" :class="'js-msg'">
+      <div class="title">
+        <span class="icon">&#xe6eb</span>
+        New Notification
+      </div>
+      <div class="info has">
+        <span class="msg">{{ message }}</span>
+      </div>
     </div>
-    <div class="info has">
-      <span class="msg">音乐已暂停。</span>
-    </div>
-  </div>
+  </slide-up-down>
+
 </template>
 
 <script>
 export default {
   name: 'Notification',
   data() {
-    
+    return {
+      message: '',
+      isShow: false
+    }
+  },
+  methods: {
+    show() {
+      this.isShow = true
+    },
+    hide() {
+      this.isShow = false
+    }
   }
 }
 </script>
 
 <style scoped>
 
-#notification {
-  display: none;
+#notificationSlideUpDown {
   position: fixed;
   right: .5em;
   bottom: .5em;
@@ -33,10 +47,6 @@ export default {
   background: rgba(35, 40, 45, 0.9);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
   animation: bottom50 300ms;
-}
-
-#notification.show {
-  display: block;
 }
 
 #notification .title {
@@ -55,10 +65,5 @@ export default {
 
 #notification .msg {
   animation: bottom20 500ms;
-}
-
-#notification .tips-icon {
-  font-size: 25px;
-  vertical-align: sub
 }
 </style>
