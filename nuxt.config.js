@@ -35,6 +35,7 @@ export default {
   plugins: [
     '~/plugins/base',
     '~/plugins/VueSlideUpDown/index',
+    '~/plugins/MusicPlayer/index',
     '~/plugins/Notification/index'
   ],
 

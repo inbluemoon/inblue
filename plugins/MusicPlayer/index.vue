@@ -1,5 +1,5 @@
 <template>
-  <div id="listen" :style="musicPlayerShow ? 'display: block' : 'display: none'">
+  <slide-up-down id="musicPlayerSlideUpDown" :active="isShow">
     <div class="player">
       <div class="box">
         <img src="https://p3.music.126.net/_LNk7rEEBSdAcnyHL8zi6Q==/109951163093399018.jpg?param=300y300" width="80" height="80" class="cover pull-left">
@@ -43,22 +43,24 @@
       <audio id="audio" class="bgm" type="audio/ogg"></audio>
     </div>
     <div id="temp"></div>
-  </div>
+  </slide-up-down>
 </template>
 
 <script>
 export default {
   name: 'MusicPlayer',
-  props: {
-    musicPlayerShow: {
-      type: Boolean,
-      require: true,
-      default: false
-    }
-  },
   data() {
     return {
-      showMusicList: false
+      showMusicList: false,
+      isShow: false
+    }
+  },
+  methods: {
+    show() {
+      this.isShow = true
+    },
+    hide() {
+      this.isShow = false
     }
   }
 }
@@ -66,8 +68,7 @@ export default {
 
 <style scoped>
 
-#listen {
-  display: none;
+#musicPlayerSlideUpDown {
   position: absolute;
   right: 0;
   margin-top: 12px;
@@ -75,7 +76,7 @@ export default {
   animation: top20 400ms
 }
 
-#listen:before {
+#musicPlayerSlideUpDown:before {
   content: '';
   position: absolute;
   background: transparent;

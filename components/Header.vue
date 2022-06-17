@@ -16,11 +16,11 @@
           </form>
 
           <div id="button-box" class="btn-box button">
-            <a href="javascript:void(0)" @click="musicPlayerShow = !musicPlayerShow" :class="musicPlayerShow ? 'show' : ''">
+            <a href="javascript:void(0)" @click="toggleMusicPlayer">
               <i class="icon icon-wangyiyun" />
               <span>Music Player</span>
             </a>
-            <MusicPlayer :music-player-show="musicPlayerShow" />
+            <music-player ref="musicPlayer" />
           </div>
 
         </div>
@@ -52,6 +52,12 @@ export default {
   data() {
     return {
       musicPlayerShow: false
+    }
+  },
+  methods: {
+    toggleMusicPlayer() {
+      this.musicPlayerShow = !this.musicPlayerShow
+      this.musicPlayerShow ? this.$refs.musicPlayer.show() : this.$refs.musicPlayer.hide()
     }
   }
 }
